@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content%}
+    <div class="container mt-4 pt-4">
+        <form method="post" enctype="multipart/form-data">
+            <!-- Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro-->
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="doctor_name" class="txt_negrita">Name</label>
+                        {{ form.doctor_name|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="doctor_last_name" class="txt_negrita">Last name</label>
+                        {{ form.doctor_last_name|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="salary" class="txt_negrita">Salary</label>
+                        {{ form.salary|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="phone_number" class="txt_negrita">Phone number</label>
+                        {{ form.phone_number|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="form-group">
+                        <label for="address" class="txt_negrita">Address</label>
+                        {{ form.address|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="medical_speciality" class="txt_negrita">Medical Speciality</label>
+                        {{ form.medical_speciality|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="turn" class="txt_negrita">Turn</label>
+                        {{ form.turn|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-5">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                    <a href="{% url 'home' %}" type="submit" class="btn btn-primary">Cancelar</a>    
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock content%}

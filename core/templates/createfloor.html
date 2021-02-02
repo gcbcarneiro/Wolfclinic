@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content%}
+    <div class="container mt-4 pt-4">
+        <form method="post" enctype="multipart/form-data">
+            <!-- Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro-->
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="form-group">
+                        <label for="floor_name" class="txt_negrita">Floor Name</label>
+                        {{ form.floor_name|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="form-group">
+                        <label for="bed_number" class="txt_negrita">Bed number</label>
+                        {{ form.bed_number|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-5">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                    <a href="{% url 'home' %}" type="submit" class="btn btn-primary">Cancelar</a>    
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock content%}

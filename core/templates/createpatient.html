@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content%}
+    <div class="container mt-4 pt-4">
+        <form method="post" enctype="multipart/form-data">
+            <!-- Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro-->
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="patient_name" class="txt_negrita">Name</label>
+                        {{ form.patient_name|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="patient_last_name" class="txt_negrita">Last name</label>
+                        {{ form.patient_last_name|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="age" class="txt_negrita">Age</label>
+                        {{ form.age|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="phone_number" class="txt_negrita">Phone number</label>
+                        {{ form.phone_number|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <div class="form-group">
+                        <label for="address" class="txt_negrita">Address</label>
+                        {{ form.address|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="sickness" class="txt_negrita">Sickness</label>
+                        {{ form.sickness|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="blood_type" class="txt_negrita">Blood Type</label>
+                        {{ form.blood_type|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-4 offset-2">
+                    <div class="form-group">
+                        <label for="floor" class="txt_negrita">Floor</label>
+                        {{ form.floor|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="doctor" class="txt_negrita">Doctor</label>
+                        {{ form.doctor|add_class:"form-control mb-1" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                    </div>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-5">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                    <a href="{% url 'home' %}" type="submit" class="btn btn-primary">Cancelar</a>    
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock content%}

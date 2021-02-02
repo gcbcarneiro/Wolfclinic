@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+<div class="container mt-4 pt-4">
+    <div class="col-1">
+            <!-- Botón para volver a la vista principal (Home) -->
+            {% for f in floor %}
+                <a href="{% url 'detailFloor' f.url %}" type="submit" class="btn btn-primary">Back</a>
+            {% endfor %}
+    </div>
+    <div class="row mt-4 pt-4">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Name:</span> <br> {{object.patient_name}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Last Name:</span> <br> {{object.patient_last_name}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Age:</span> <br> {{object.age}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Phone Number:</span> <br> {{object.phone_number}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Address:</span> <br> {{object.address}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Sickness:</span> <br> {{object.sickness}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Blood Type:</span> <br> {{object.blood_type}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Doctor:</span> <br> {{object.doctor}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Floor:</span> <br> {{object.floor}}</p>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+{% endblock content%}

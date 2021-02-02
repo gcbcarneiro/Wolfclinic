@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+<div class="container mt-4 pt-4">
+    <div class="col-1">
+            <!-- Botón para volver a la vista principal (Home) -->
+            {% for f in floor %}
+                <a href="{% url 'detailFloor' f.url %}" type="submit" class="btn btn-primary">Back</a>
+            {% endfor %}
+    </div>
+    <div class="row mt-4 pt-4">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Name:</span> <br> {{object.doctor_name}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Last Name:</span> <br> {{object.doctor_last_name}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Salary:</span> <br> {{object.salary}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Phone Number:</span> <br> {{object.phone_number}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Address:</span> <br> {{object.address}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-3">
+            <p><span class="txt_negrita">Speciality:</span> <br> {{object.medical_speciality}}</p>
+        </div>
+        <div class="col-4">
+            <p><span class="txt_negrita">Turn:</span> <br> {{object.turn}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="col-10 offset-2">
+            <div class="row mb-3 mt-2 ">
+            <div class="col-1">
+                <h2>Patients</h2>
+            </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last name</th>
+                        <th>Sickness</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <div class="row"> 
+                {% for patient in patients %}
+                    <tr>
+                        <td>{{ patient.patient_name }}</td>
+                        <td>{{ patient.patient_last_name }}</td> 
+                        <td>{{ patient.sickness }}</td> 
+                        <td>   
+                            <form method="POST" action="{% url 'deletepacient' patient.pacient_url %}">
+                                {% csrf_token %}
+                                <div class="btn-group">
+                                    <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros -->
+                                    <a href="{% url 'detailpacient' patient.pacient_url %}" title="Ver" type="button" class="btn btn-success">details</a>
+                                    <a href="{% url 'updatepacient' patient.pacient_url %}" title="Editar" type="button" class="btn btn-primary">Edit</a>
+                                    <button class="btn btn-danger" onclick="return delete();" type="submit">
+                                    Delete
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %} 
+                </div>
+
+                </tbody>
+            </table>
+        </div>
+</div>
+
+
+{% endblock content%}
