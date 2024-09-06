@@ -13,7 +13,7 @@ services:
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "1000:1000"
     depends_on:
       - db
   
